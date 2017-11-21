@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Popover from 'material-ui/Popover'
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+
+const style = {
+  display: 'flex',
+  margin: '16, 32, 16, 0'
+};
 
 class Header extends React.Component {
   constructor(props) {
@@ -12,14 +18,15 @@ class Header extends React.Component {
     this.state = {
       open: false,
     }
+    this.handleLogout = this.handleLogout.bind(this);
   };
 
-  handleTouchTap = (e) => {
-    e.preventDefault();
+  handleTouchTap = (event) => {
+    event.preventDefault();
 
     this.setState({
       open: true,
-      anchorEl: e.currentTarget
+      anchorEl: event.currentTarget
     });
   };
 
@@ -27,6 +34,10 @@ class Header extends React.Component {
     this.setState({
       open: false
     });
+  };
+
+  handleLogout = () => {
+    this.props.auth.logout();
   };
 
   render() {
@@ -40,12 +51,16 @@ class Header extends React.Component {
           open={this.state.open}
           anchorEl={this.state.anchorEl}
           anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+          targetOrigin={{horizontal: 'left', vertical: 'top'}}
+          onRequestClose={this.handleRequestClose}
         >
-          <Menu>
-            <MenuItem primaryText="Trip History" />
-            <MenuItem primaryText="User Profile" />
-            <MenuItem primaryText="Logout" />
-          </Menu>
+          <Paper style={style}>
+            <Menu>
+              <MenuItem primaryText="Trip History" />
+              <MenuItem primaryText="User Profile" />
+              <MenuItem onClick={(e) => {this.handleLogout(e)}} primaryText="Logout" />
+            </Menu>
+          </Paper>
         </Popover>
       </div>
       )
