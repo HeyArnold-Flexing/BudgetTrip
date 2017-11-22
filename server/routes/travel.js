@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const sygicKEY = require('../../config.js')._sygicKEY;
-
 router.get('/', (req, res, next) => {
   res.json('INSIDE TRAVEL!');
 });

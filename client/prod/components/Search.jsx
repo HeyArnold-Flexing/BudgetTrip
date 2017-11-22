@@ -13,6 +13,7 @@ const style = {
     margin: 20,
     textAlign: 'center',
     paddingTop: 20
+    display: 'inline-flex',
   },
   container: {
     width: 100,
