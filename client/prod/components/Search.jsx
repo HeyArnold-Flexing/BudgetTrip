@@ -12,7 +12,7 @@ const style = {
     width: 500,
     margin: 20,
     textAlign: 'center',
-    display: 'inline-block',
+    display: 'inline-flex',
   },
   container: {
     width: 100,
@@ -102,7 +102,8 @@ export default class Search extends React.Component {
         location: this.state.location,
         startDate: this.state.startDate,
         endDate: this.state.endDate,
-        autoOk: true,
+        lat: this.state.lat,
+        lng: this.state.lng,
       },
     })
       .then(data => {
