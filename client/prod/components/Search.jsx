@@ -5,6 +5,7 @@ import DatePicker from 'material-ui/DatePicker';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const axios = require('axios');
+const querystring = require('querystring');
 
 const style = {
   paper: {
@@ -96,15 +97,15 @@ export default class Search extends React.Component {
     event.preventDefault();
     axios({
       method: 'post',
-      url: 'localhost:1130/search',
-      data: {
+      url: 'localhost:1130/api/travel/search',
+      data: querystring.stringify({
         budget: this.state.budget,
         location: this.state.location,
         startDate: this.state.startDate,
         endDate: this.state.endDate,
         lat: this.state.lat,
         lng: this.state.lng,
-      },
+      }),
     })
       .then(data => {
         console.log(data);
