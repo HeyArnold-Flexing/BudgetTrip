@@ -100,3 +100,4 @@ router.post('/search', (req, res, next) => {
 });
 
 module.exports.travel = router;
+
