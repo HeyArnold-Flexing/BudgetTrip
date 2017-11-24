@@ -5,7 +5,6 @@ import DatePicker from 'material-ui/DatePicker';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const axios = require('axios');
-const querystring = require('querystring');
 
 const style = {
   paper: {
@@ -47,6 +46,9 @@ export default class Search extends React.Component {
     this.search = this.search.bind(this);
     this.handleChangeMinDate = this.handleChangeMinDate.bind(this);
     this.handleChangeMaxDate = this.handleChangeMaxDate.bind(this);
+    this.getTravel = this.getTravel.bind(this);
+    this.getFood = this.getFood.bind(this);
+    this.getEvents = this.getEvents.bind(this);
   }
 
   handleChangeMinDate(event, date) {
@@ -93,20 +95,31 @@ export default class Search extends React.Component {
     });
   }
 
+  getTravel(data) {
+    return axios.post('http://127.0.0.1:1130/api/travel/search', data);
+  }
+
+  getFood(data) {
+    return axios.post('http://127.0.0.1:1130/api/food/search', data);
+  }
+
+  getEvents(data) {
+    return axios.post('http://127.0.0.1:1130/api/events/search', data);
+  }
+
   search(event) {
     event.preventDefault();
-    axios({
-      method: 'post',
-      url: 'localhost:1130/api/travel/search',
-      data: querystring.stringify({
-        budget: this.state.budget,
-        location: this.state.location,
-        startDate: this.state.startDate,
-        endDate: this.state.endDate,
-        lat: this.state.lat,
-        lng: this.state.lng,
-      }),
-    })
+    const data = {
+      budget: this.state.budget,
+      location: this.state.location,
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      lat: this.state.lat,
+      lng: this.state.lng,
+    };
+
+    axios
+      .all([this.getTravel(data), this.getFood(data), this.getEvents(data)])
       .then(data => {
         console.log(data);
       })
@@ -116,7 +129,6 @@ export default class Search extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="container" style={style.container}>
         <Paper style={style.paper} zDepth={2}>
