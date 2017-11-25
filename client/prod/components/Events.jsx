@@ -14,12 +14,12 @@ export default class Events extends React.Component {
   render() {
     return (
       <div>
-        <img src={props.event.image_url} alt={props.event.name} />
-        <p>Event: {props.event.name}</p>
-        <p>Category: {props.event.category}</p>
-        <p>Description: {props.event.description}</p>
-        <p>Start time: {props.event.time_start}</p>
-        <p>End time: {props.event.time_end}</p>
+        <img src={this.props.event.image_url} alt={this.props.event.name} />
+        <p>Event: {this.props.event.name}</p>
+        <p>Category: {this.props.event.category}</p>
+        <p>Description: {this.props.event.description}</p>
+        <p>Start time: {this.props.event.time_start}</p>
+        <p>End time: {this.props.event.time_end}</p>
         <RaisedButton label="Add Event" primary={true} style={style} />
       </div>
     );

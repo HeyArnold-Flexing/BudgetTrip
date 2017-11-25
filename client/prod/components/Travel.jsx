@@ -10,12 +10,12 @@ class Travel extends React.Component {
   render() {
     return (
       <div>
-        <img src={props.travel.place.picture} alt={props.travel.place.name} />
-        <h3>{props.travel.place.name}</h3>
-        <p>{props.travel.place.perex}</p>
-        <p>{props.travel.place.admission}</p>
-        <p>{props.travel.place.star_rating}</p>
-        <p>{props.travel.place.opening_hours}</p>
+        <img src={this.props.travel.place.picture} alt={this.props.travel.place.name} />
+        <h3>{this.props.travel.place.name}</h3>
+        <p>{this.props.travel.place.perex}</p>
+        <p>{this.props.travel.place.admission}</p>
+        <p>{this.props.travel.place.star_rating}</p>
+        <p>{this.props.travel.place.opening_hours}</p>
         <RaisedButton label="Add" primary={true} />
       </div>
     );

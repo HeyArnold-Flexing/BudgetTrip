@@ -8,11 +8,11 @@ export default class Food extends React.Component {
   render() {
     return (
       <div>
-        <img src={props.restaurant.restaurant.thumb} alt={props.restaurant.restaurant.name} />
-        <p>Address: {props.restaurant.restaurant.location.address}</p>
-        <p>Restaurant: {props.restaurant.restaurant.name}</p>
-        <p>Cuisine: {props.restaurant.restaurant.cuisines}</p>
-        <p>Average Cost (For two): {props.restaurant.restaurant.average_cost_for_two}</p>
+        <img src={this.props.restaurant.restaurant.thumb} alt={this.props.restaurant.restaurant.name} />
+        <p>Address: {this.props.restaurant.restaurant.location.address}</p>
+        <p>Restaurant: {this.props.restaurant.restaurant.name}</p>
+        <p>Cuisine: {this.props.restaurant.restaurant.cuisines}</p>
+        <p>Average Cost (For two): {this.props.restaurant.restaurant.average_cost_for_two}</p>
       </div>
     );
   }
