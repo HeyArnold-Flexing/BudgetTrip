@@ -12,7 +12,7 @@ const style = {
     width: 500,
     margin: 20,
     textAlign: 'center',
-    paddingTop: 20
+    paddingTop: 20,
     display: 'inline-flex',
   },
   container: {
