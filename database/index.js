@@ -89,10 +89,17 @@ const saveActivity = (user, activity) => {
   email: 'Markus1998@yahoo.com',
   location: 'Sandy Springs'
 }
+=======
+    if (err) { cb(err) }
+    else { console.log(data) }
+  });
+})
+
+>>>>>>> commit
 saveUser(sampleUser, (err, data) => {
   if (err) console.log(err);
 });
-*/
+
 
 module.exports = {
   User,
