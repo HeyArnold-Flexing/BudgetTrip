@@ -90,16 +90,27 @@ const saveActivity = (user, activity) => {
   location: 'Sandy Springs'
 }
 =======
+=======
+>>>>>>> fix merge issues
     if (err) { cb(err) }
     else { console.log(data) }
   });
 })
 
+<<<<<<< 2efb2720ec0dd1d578c2f8e2a0fe724fa3213116
 >>>>>>> commit
+=======
+
+/*var sampleUser = {
+  username: 'Mark',
+  email: 'Markus1998@yahoo.com',
+  location: 'Sandy Springs'
+}
+>>>>>>> fix merge issues
 saveUser(sampleUser, (err, data) => {
   if (err) console.log(err);
 });
-
+*/
 
 module.exports = {
   User,
