@@ -24,12 +24,14 @@ var Users = new mongoose.Schema({
     location: String,
     start_date: Date,
     end_date: Date,
-    activities: [new mongoose.Schema({
-      name: { type: String, unique: true },
-      description: String,
-      price: Number
-    })],
-    logs: [[]]
+    activities: [
+      new mongoose.Schema({
+        name: { type: String, unique: true },
+        description: String,
+        price: Number,
+      }),
+    ],
+    logs: [[]],
   },
 
   tripsHistory: [],
@@ -37,7 +39,7 @@ var Users = new mongoose.Schema({
 
 var User = mongoose.model('user', Users);
 
-let saveUser = (user, cb) => {
+/*let saveUser = (user, cb) => {
   let newUser = new User({
     username: user.username,
     email: user.email,
@@ -62,13 +64,10 @@ let saveUser = (user, cb) => {
       console.log(data);
     }
   });
-};
+};*/
 
-const saveActivity = (user, activity) => {
-  // console.log('user in database::::::::: ', user);
+/*const saveActivity = (user, activity) => {
   console.log('activity in database::::::::: ', activity);
-  // find the user based on the user parameter
-
   User.findOne({ username: user }).exec((error, person) => {
     console.log('person found!!!!!!', person);
     person.trips.activities.push(activity);
@@ -80,33 +79,13 @@ const saveActivity = (user, activity) => {
       }
     });
   });
-  // When found
-  // Update the database with acitivity
-};
+};*/
 
 /*var sampleUser = {
   username: 'Mark',
   email: 'Markus1998@yahoo.com',
   location: 'Sandy Springs'
 }
-=======
-=======
->>>>>>> fix merge issues
-    if (err) { cb(err) }
-    else { console.log(data) }
-  });
-})
-
-<<<<<<< 2efb2720ec0dd1d578c2f8e2a0fe724fa3213116
->>>>>>> commit
-=======
-
-/*var sampleUser = {
-  username: 'Mark',
-  email: 'Markus1998@yahoo.com',
-  location: 'Sandy Springs'
-}
->>>>>>> fix merge issues
 saveUser(sampleUser, (err, data) => {
   if (err) console.log(err);
 });
@@ -114,5 +93,5 @@ saveUser(sampleUser, (err, data) => {
 
 module.exports = {
   User,
-  saveActivity,
+  //saveActivity,
 };
